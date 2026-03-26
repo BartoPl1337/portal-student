@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Manrope } from "next/font/google";
 import { ConvexClientProvider } from "@/components/ConvexClientProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Manrope({
   variable: "--font-manrope",
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} antialiased`}>
         <ConvexClientProvider>
           {children}
+          <Toaster />
         </ConvexClientProvider>
       </body>
     </html>
