@@ -40,7 +40,7 @@ const nav = [
         icon: <CalendarFold />
     },
     {
-        label: "KURSY",
+        label: "Kursy",
         href: "/courses",
         icon: <GraduationCap />
     },
@@ -73,10 +73,10 @@ export function AppSidebar() {
         return pathname.startsWith(url);
     };
     return (
-        <Sidebar className="px-4">
-            <SidebarHeader>
+        <Sidebar className="px-4 py-8">
+            <SidebarHeader className="px-4">
                 <h1 className="font-extrabold text-lg text-primary">Student Portal</h1>
-                <h3 className="text-[10px] text-secondary font-bold">Informatyka</h3>
+                <h3 className="text-xs text-secondary font-bold">Informatyka</h3>
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
@@ -87,19 +87,18 @@ export function AppSidebar() {
                                 return (
                                     <SidebarMenuItem key={item.label}>
                                         <SidebarMenuButton
-                                            variant={active ? "default" : "outline"}
-                                            size="default"
+                                            asChild
                                             className={cn(
-                                                "group relative rounded-lg px-3 py-2.5 transition-all",
+                                                "group relative rounded-none transition-all px-4 py-3 font-medium text-xs",
                                                 active
-                                                    ? "bg-primary/10 font-medium text-primary shadow-sm"
-                                                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                                                    ? "bg-primary/10 text-primary font-bold shadow-sm border-r-2 border-primary hover:text-primary hover:bg-primary/10"
+                                                    : "text-secondary hover:text-primary",
                                             )}
                                         >
-                                            <a href={item.href} className="font-medium text-xs text-secondary flex items-center gap-2">
+                                            <Link href={item.href}>
                                                 {item.icon}
                                                 {item.label}
-                                            </a>
+                                            </Link>
                                         </SidebarMenuButton>
                                     </SidebarMenuItem>
                                 );
@@ -121,7 +120,7 @@ export function AppSidebar() {
                             <span className="text-[10px] text-secondary">Semestr 5</span>
                         </div>
                     </div>
-                    <Button variant="destructive" className="bg-">
+                    <Button variant="destructive">
                         <LogOut />
                         Wyloguj się
                     </Button>
